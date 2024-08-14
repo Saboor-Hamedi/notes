@@ -1,0 +1,50 @@
+/* Container for the form and search results */
+.form-container {
+    position: relative; /* Ensure the dropdown is positioned relative to this container */
+}
+
+/* Search input styling */
+.search-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Search results styling */
+.search__ul {
+    position: absolute;
+    top: 100%; /* Position directly below the input */
+    left: 0;
+    right: 0;
+    margin: 0; /* Remove default margin */
+    padding: 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 1000; /* Ensure it appears above other content */
+    max-height: 300px; /* Limit height of the dropdown */
+    overflow-y: auto; /* Add scroll if content overflows */
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add shadow for better visibility */
+}
+
+/* Search result items styling */
+.search__li {
+    padding: 10px;
+    cursor: pointer;
+    width: 100%; /* Ensure it matches the width of the input */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.search__li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .search-input {
+        font-size: 14px;
+    }
+}
