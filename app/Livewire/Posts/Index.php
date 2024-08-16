@@ -9,7 +9,7 @@ class Index extends Component
 {
     public function render()
     {
-        $posts = Posts::latest()->simplePaginate(5);
+        $posts = Posts::latest()->simplePaginate(3);
         return view('livewire.posts.index', ['posts' => $posts]);
     }
 }

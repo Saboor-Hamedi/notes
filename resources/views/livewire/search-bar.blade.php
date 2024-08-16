@@ -1,4 +1,9 @@
 <div class="container">
+    <div class="message">
+    @if (Session::has('message'))
+        <span class="messages" >{{ Session('message') }}</span>
+    @endif
+</div>
     <div class="form-container">
         <!-- Search Form -->
         <form class="d-flex">

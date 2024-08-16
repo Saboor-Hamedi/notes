@@ -1,6 +1,7 @@
 /* Container for the form and search results */
 .form-container {
-    position: relative; /* Ensure the dropdown is positioned relative to this container */
+    position: relative;
+    /* Ensure the dropdown is positioned relative to this container */
 }
 
 /* Search input styling */
@@ -15,27 +16,35 @@
 /* Search results styling */
 .search__ul {
     position: absolute;
-    top: 100%; /* Position directly below the input */
+    top: 100%;
+    /* Position directly below the input */
     left: 0;
     right: 0;
-    margin: 0; /* Remove default margin */
+    margin: 0;
+    /* Remove default margin */
     padding: 0;
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: #fff;
-    z-index: 1000; /* Ensure it appears above other content */
-    max-height: 300px; /* Limit height of the dropdown */
-    overflow-y: auto; /* Add scroll if content overflows */
+    z-index: 1000;
+    /* Ensure it appears above other content */
+    max-height: 300px;
+    /* Limit height of the dropdown */
+    overflow-y: auto;
+    /* Add scroll if content overflows */
     font-size: 14px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add shadow for better visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Optional: Add shadow for better visibility */
 }
 
 /* Search result items styling */
 .search__li {
     padding: 10px;
     cursor: pointer;
-    width: 100%; /* Ensure it matches the width of the input */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    width: 100%;
+    /* Ensure it matches the width of the input */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
 }
 
 .search__li:hover {
@@ -47,4 +56,95 @@
     .search-input {
         font-size: 14px;
     }
+}
+
+
+.form-check-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    justify-content: start;
+}
+
+/* cards */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+}
+
+*/
+/* forms */
+  .form-control {
+        border-radius: 10px;
+        padding: 10px 15px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+    .form-control:focus {
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        border-color: #007bff;
+    }
+    
+    .btn-primary {
+        border-radius: 10px;
+        padding: 10px;
+        transition: background-color 0.3s ease-in-out;
+    }
+    
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    
+    .form-floating label {
+        font-size: 0.9rem;
+        color: #6c757d;
+        padding-left: 15px;
+    }
+    
+    .text-primary {
+        color: #007bff !important;
+    }
+    
+    .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+/* message */
+.message {
+    background-color: aliceblue;
+    color: black;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.message .messages {
+    padding: 20px;
+    font-size: 14px;
+
 }

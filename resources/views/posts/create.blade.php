@@ -1,4 +1,3 @@
-
 <x-app-layout>
-     @livewire('posts.create')
+    @livewire('posts.create')
 </x-app-layout>
