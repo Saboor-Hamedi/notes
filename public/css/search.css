@@ -1,23 +1,7 @@
-/* Container for the form and search results */
-.form-container {
-    position: relative;
-    /* Ensure the dropdown is positioned relative to this container */
-}
-
-/* Search input styling */
-.search-input {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
 /* Search results styling */
 .search__ul {
     position: absolute;
-    top: 100%;
-    /* Position directly below the input */
+    top: 80%;
     left: 0;
     right: 0;
     margin: 0;
@@ -27,14 +11,10 @@
     border: 1px solid #ccc;
     background-color: #fff;
     z-index: 1000;
-    /* Ensure it appears above other content */
     max-height: 300px;
-    /* Limit height of the dropdown */
     overflow-y: auto;
-    /* Add scroll if content overflows */
     font-size: 14px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Optional: Add shadow for better visibility */
 }
 
 /* Search result items styling */
@@ -42,22 +22,61 @@
     padding: 10px;
     cursor: pointer;
     width: 100%;
-    /* Ensure it matches the width of the input */
     box-sizing: border-box;
-    /* Ensure padding is included in width */
 }
 
 .search__li:hover {
     background-color: #f0f0f0;
 }
 
-/* Responsive styling */
-@media (max-width: 768px) {
-    .search-input {
-        font-size: 14px;
-    }
+.hero--video {
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 600px;
 }
 
+.hero video {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.hero .search {
+    position: relative;
+    vertical-align: middle;
+    z-index: 2;
+}
+
+.hero .search input {
+    width: 100%;
+    height: 76px;
+    font-size: 18px;
+    position: relative;
+    border-radius: 10px;
+    outline: none;
+}
+
+.hero .search button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    color: #fff;
+    background: #88687b;
+    font-size: 27px;
+    height: 65px;
+    line-height: 65px;
+    width: 68px;
+    padding: 0;
+    border: 0;
+}
 
 .form-check-label {
     display: flex;
@@ -98,42 +117,43 @@
 }
 
 */
+
 /* forms */
-  .form-control {
-        border-radius: 10px;
-        padding: 10px 15px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease-in-out;
-    }
-    
-    .form-control:focus {
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-        border-color: #007bff;
-    }
-    
-    .btn-primary {
-        border-radius: 10px;
-        padding: 10px;
-        transition: background-color 0.3s ease-in-out;
-    }
-    
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
-    
-    .form-floating label {
-        font-size: 0.9rem;
-        color: #6c757d;
-        padding-left: 15px;
-    }
-    
-    .text-primary {
-        color: #007bff !important;
-    }
-    
-    .shadow-sm {
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    }
+.form-control {
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    border-color: #007bff;
+}
+
+.btn-primary {
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.form-floating label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    padding-left: 15px;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
 
 /* message */
 .message {
