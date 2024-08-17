@@ -27,45 +27,43 @@ new #[Layout('layouts.guest')] class extends Component {
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form wire:submit="login">
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model.live="form.email" id="email" class="block w-full mt-1" type="email" name="email"
-                placeholder="exampl@example.com" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
-        </div>
+   <form wire:submit.prevent="login">
+    <!-- Email Address -->
+    <div class="mb-3">
+        <x-input-label for="email" :value="__('Email')" />
+        <x-text-input wire:model.live="form.email" id="email" type="email" name="email" placeholder="example@example.com"
+            class="form-control mt-1" required autofocus autocomplete="username" />
+        <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
+    </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <!-- Password -->
+    <div class="mb-3">
+        <x-input-label for="password" :value="__('Password')" />
+        <x-text-input wire:model.live="form.password" id="password" type="password" name="password" placeholder="Password"
+            class="form-control mt-1" required autocomplete="current-password" />
+        <x-input-error :messages="$errors->get('form.password')" class="mt-2" />
+    </div>
 
-            <x-text-input wire:model.live="form.password" id="password" class="block w-full mt-1" type="password"
-                name="password" placeholder="password" required autocomplete="current-password" />
+    <!-- Remember Me -->
+    <div class="form-check mb-3">
+        <input wire:model.live="form.remember" id="remember" type="checkbox" class="form-check-input" name="remember">
+        <label for="remember" class="form-check-label">
+            {{ __('Remember me') }}
+        </label>
+    </div>
 
-            <x-input-error :messages="$errors->get('form.password')" class="mt-2" />
-        </div>
+    <!-- Forgot Password & Submit Button -->
+    <div class="d-flex justify-content-between align-items-center">
+        @if (Route::has('password.request'))
+            <a class="text-sm text-muted text-decoration-none" href="{{ route('password.request') }}" wire:navigate>
+                {{ __('Forgot your password?') }}
+            </a>
+        @endif
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember" class="inline-flex items-center">
-                <input wire:model.live="form.remember" id="remember" type="checkbox"
-                    class="text-indigo-600 border-gray-300 rounded shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="text-sm text-gray-600 ms-2">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+        <x-primary-button class="btn btn-primary ms-3">
+            {{ __('Log in') }}
+        </x-primary-button>
+    </div>
+</form>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    href="{{ route('password.request') }}" wire:navigate>
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
 </div>

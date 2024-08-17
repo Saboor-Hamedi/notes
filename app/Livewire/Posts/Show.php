@@ -14,6 +14,7 @@ class Show extends Component
     {
         $this->post = Posts::findOrFail($id);
     }
+
     public function render()
     {
         return view('livewire.posts.show');

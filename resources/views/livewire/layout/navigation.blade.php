@@ -37,7 +37,7 @@ new class extends Component
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            {{-- <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
@@ -64,7 +64,7 @@ new class extends Component
                         </button>
                     </x-slot>
                 </x-dropdown>
-            </div>
+            </div> --}}
 
             <!-- Hamburger -->
             <div class="flex items-center -me-2 sm:hidden">

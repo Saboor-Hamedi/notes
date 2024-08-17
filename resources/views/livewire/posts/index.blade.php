@@ -22,15 +22,10 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{!! $post->title !!}</h5>
                             <p class="card-text">{!! Str::limit($post->content, 40, '...') !!}.</p>
-                            <p class="mt-auto text-muted">Posted on {{ $post->created_at->diffForHumans() }}</p>
+                            <p class="mt-auto text-muted">{{ $post->created_at->diffForHumans() }}</p>
                         </div>
                         <div class="card-footer d-flex justify-content-between">
-                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">
-                                Modify
-                            </a>
-                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary btn-sm">
-                                Show
-                            </a>
+                            @livewire('posts.post-action',['postId' => $post->id])
                         </div>
                     </div>
                 </div>

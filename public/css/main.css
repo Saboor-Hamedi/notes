@@ -270,7 +270,14 @@ textarea {
     font-size: inherit;
     line-height: inherit
 }
-
+input{
+    outline: none;
+    border-radius: 5px;
+}
+textarea{
+    outline: none;
+    height: 200px;
+}
 button,
 input {
     overflow: visible

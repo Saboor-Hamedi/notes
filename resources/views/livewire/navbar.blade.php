@@ -19,5 +19,10 @@
                 </x-nav-link>
             @endif
         </li>
+        @livewire('logout')
+
     </ul>
+
+
+
 </div>

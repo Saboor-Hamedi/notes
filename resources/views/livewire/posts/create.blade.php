@@ -1,6 +1,6 @@
-<form>
-    <div class="container py-3 mx-auto mt-3 mb-3 text-center rounded shadow-sm card bg-light">
-        <h4 class="text-primary">Write Your Note</h4>
+<form wire:submit.prevent='submit'>
+   <div class="container">
+     <div class="container py-3 mx-auto text-center rounded shadow-sm ">
     </div>
     <div class="mb-3">
         <input wire:model.live='title' type="text" id="title" name="title"
@@ -20,12 +20,11 @@
             @enderror
         </small>
     </div>
-    <div class="mb-3 form-check">
-        <input wire:model.live='completed' class="form-check-input" type="checkbox" name="completed" id="completed">
-        <label class="form-check-label" for="completed">
-            <small class="text-primary">Mark as Completed</small>
+    <div class="form-group">
+        <label for="completed">
+            <input type="checkbox" id="completed" wire:model="completed"> Check as Completed
         </label>
     </div>
-    {{-- <button wire:click.prevent='submit' class="btn btn-primary w-100">Submit</button> --}}
-    <x-primary-button wire:click.prevent='submit' class="btn btn-primary w-100">Make note</x-primary-button>
+    <button type="submit" class="btn btn-primary">Update note</button>
+   </div>
 </form>

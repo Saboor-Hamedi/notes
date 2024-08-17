@@ -1,7 +1,6 @@
-    <form>
-        <div class="container py-3 mx-auto mt-3 mb-3 text-center rounded shadow-sm card bg-light">
-            <h4 class="text-primary">Update note</h4>
-        </div>
+    <form wire:submit.prevent="update">
+        <div class="container py-3 mx-auto text-center rounded shadow-sm ">
+    </div>
         <div class="mb-3">
             <input wire:model.live='title' type="text" id="title" name="title"
                 class="form-control @error('title') is-invalid @enderror" placeholder="Enter your title">
@@ -20,11 +19,10 @@
                 @enderror
             </small>
         </div>
-        <div class="mt-3 form-group">
+        <div class="form-group">
             <label for="completed">
                 <input type="checkbox" id="completed" wire:model.live="completed"> Check as Completed
             </label>
         </div>
-        {{-- <button wire:click.prevent='submit' class="btn btn-primary w-100">Submit</button> --}}
-        <x-primary-button wire:click.prevent='update' class="btn btn-primary w-100">Update</x-primary-button>
+        <button type="submit" class="btn btn-info">Update note</button>
     </form>

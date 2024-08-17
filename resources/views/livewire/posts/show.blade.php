@@ -9,6 +9,11 @@
                         <p class="card-text">{{ $post->content }}</p>
                         <p class="text-muted"> {{ $post->created_at->diffForHumans() }}</p>
                     </div>
+                    <div class="card-footer d-flex justify-content-between">
+                            <a href="{{ route('home')}}" class="btn btn-primary btn-sm" wire:navigate>
+                                <i class="bi bi-house"></i> Back
+                            </a>
+                        </div>
                 </div>
             </div>
         </div>

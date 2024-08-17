@@ -45,7 +45,7 @@ class Edit extends Component
         ]);
 
         // Flash message and redirect
-        session()->flash('message', 'Post updated successfully!');
+        session()->flash('message', 'Note updated successfully');
         return Redirect::route('home'); // Adjust the redirect route if necessary
     }
 
