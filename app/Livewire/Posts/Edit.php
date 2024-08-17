@@ -25,6 +25,7 @@ class Edit extends Component
         $this->postId = $id;
         $post = Posts::findOrFail($id);
 
+
         // Initialize properties with post data
         $this->title = $post->title;
         $this->content = $post->content;
@@ -38,14 +39,27 @@ class Edit extends Component
 
         // Find the post and update it
         $post = Posts::findOrFail($this->postId);
+
+        $data = [
+            'title' => $this->title,
+            'content' => $this->content,
+            'completed' => $this->completed
+        ];
+        // Check if the post has been modified
+        if (!$post->isModified($data)) {
+            session()->flash('message', 'Note has not been modified');
+            return Redirect::route('home');
+        }
+
         $post->update([
             'title' => $this->title,
             'content' => $this->content,
             'completed' => $this->completed
         ]);
 
-        // Flash message and redirect
         session()->flash('message', 'Note updated successfully');
+        // Flash message and redirect
+
         return Redirect::route('home'); // Adjust the redirect route if necessary
     }
 

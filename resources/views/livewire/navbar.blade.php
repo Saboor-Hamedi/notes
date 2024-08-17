@@ -5,20 +5,30 @@
                 {{ __('Create') }}
             </x-nav-link>
         </li>
-        <li class="nav-item">
-            @if (Route::has('login'))
-                <x-nav-link :active="request()->routeIs('login')" wire:navigate href="{{ route('login') }}" class="nav-link">
-                    {{ __('Log in') }}
-                </x-nav-link>
-            @endif
+        @auth
+            <li class="nav-item">
+            <x-nav-link :active="request()->routeIs('dashboard')" wire:navigate href="{{ route('dashboard') }}" class="nav-link">
+                {{ __('Profile') }}
+            </x-nav-link>
         </li>
-        <li class="nav-item">
-            @if (Route::has('register'))
-                <x-nav-link :active="request()->routeIs('register')" wire:navigate href="{{ route('register') }}" class="nav-link">
-                    {{ __('Register') }}
-                </x-nav-link>
-            @endif
-        </li>
+        @endauth
+        
+        @guest
+            <li class="nav-item">
+                @if (Route::has('register'))
+                    <x-nav-link :active="request()->routeIs('register')" wire:navigate href="{{ route('register') }}" class="nav-link">
+                        {{ __('Register') }}
+                    </x-nav-link>
+                @endif
+            </li>
+            <li class="nav-item">
+                @if (Route::has('login'))
+                    <x-nav-link :active="request()->routeIs('login')" wire:navigate href="{{ route('login') }}" class="nav-link">
+                        {{ __('Log in') }}
+                    </x-nav-link>
+                @endif
+            </li>
+        @endguest
         @livewire('logout')
 
     </ul>

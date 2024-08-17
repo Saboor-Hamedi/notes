@@ -5,7 +5,7 @@
         @livewire('navbar')
     </nav>
   <div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
-    <div class="w-100 p-4 shadow-lg rounded-lg" style="max-width: 400px;">
+    <div class="p-4 rounded-lg shadow-lg w-100" style="max-width: 400px;">
         {{ $slot }}
     </div>
 </div>

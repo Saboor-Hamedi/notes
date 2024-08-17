@@ -9,14 +9,14 @@ class PostAction extends Component
     public $postId;
     public function modify()
     {
-        // Perform the redirection to the edit page
-        return redirect()->route('posts.edit', ['post' => $this->postId]);
+        // Redirect immediately
+        return redirect()->away(route('posts.edit', ['post' => $this->postId]));
     }
 
     public function show()
     {
-        // Perform the redirection to the show page
-        return redirect()->route('posts.show', ['post' => $this->postId]);
+        // Redirect immediately
+        return redirect()->away(route('posts.show', ['post' => $this->postId]));
     }
     public function render()
     {

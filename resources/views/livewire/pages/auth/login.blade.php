@@ -32,7 +32,7 @@ new #[Layout('layouts.guest')] class extends Component {
     <div class="mb-3">
         <x-input-label for="email" :value="__('Email')" />
         <x-text-input wire:model.live="form.email" id="email" type="email" name="email" placeholder="example@example.com"
-            class="form-control mt-1" required autofocus autocomplete="username" />
+            class="mt-1 form-control" required autofocus autocomplete="username" />
         <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
     </div>
 
@@ -40,12 +40,12 @@ new #[Layout('layouts.guest')] class extends Component {
     <div class="mb-3">
         <x-input-label for="password" :value="__('Password')" />
         <x-text-input wire:model.live="form.password" id="password" type="password" name="password" placeholder="Password"
-            class="form-control mt-1" required autocomplete="current-password" />
+            class="mt-1 form-control" required autocomplete="current-password" />
         <x-input-error :messages="$errors->get('form.password')" class="mt-2" />
     </div>
 
     <!-- Remember Me -->
-    <div class="form-check mb-3">
+    <div class="mb-3 form-check">
         <input wire:model.live="form.remember" id="remember" type="checkbox" class="form-check-input" name="remember">
         <label for="remember" class="form-check-label">
             {{ __('Remember me') }}

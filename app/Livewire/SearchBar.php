@@ -17,7 +17,6 @@ class SearchBar extends Component
 
     public function render()
     {
-        // Perform search logic here
         if ($this->searchTerm) {
             $this->posts = Posts::where('title', 'like', '%' . $this->searchTerm . '%')->limit(5)->get();
         } else {
@@ -41,5 +40,13 @@ class SearchBar extends Component
         }
 
         return redirect()->route('posts.show', ['post' => $id]);
+    }
+
+    public function selectFirstResult()
+    {
+        if (!empty($this->posts)) {
+            // Access the first item as an array
+            $this->viewPost($this->posts[0]['id']);
+        }
     }
 }
