@@ -2,11 +2,21 @@
 
 namespace App\Livewire\Posts;
 
+use App\Models\Posts;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class PostAction extends Component
 {
     public $postId;
+    public $isOwner = false;
+    public function mount($postId)
+    {
+        $this->postId = $postId;
+        $post = Posts::findOrFail($postId);
+        $this->isOwner = Auth::check() && Auth::id() === $post->user_id;
+    }
+
     public function modify()
     {
         // Redirect immediately

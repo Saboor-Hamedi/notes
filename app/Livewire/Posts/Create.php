@@ -3,6 +3,7 @@
 namespace App\Livewire\Posts;
 
 use App\Models\Posts;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -26,6 +27,7 @@ class Create extends Component
         $this->validate();
         // Proceed with other logic, like saving to the database
         $post = Posts::create([
+            'user_id' => Auth::user()->id,
             'title' => $this->title,
             'content' => $this->content,
             'completed' => $this->completed

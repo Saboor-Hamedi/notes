@@ -16,17 +16,15 @@ class Edit extends Component
 
     // Define validation rules
     protected $rules = [
-        'title' => 'required|min:3|max:50',
+        'title' => 'required|min:3|max:100',
         'content' => 'required|min:3|max:250',
     ];
+
 
     public function mount($id)
     {
         $this->postId = $id;
         $post = Posts::findOrFail($id);
-
-
-        // Initialize properties with post data
         $this->title = $post->title;
         $this->content = $post->content;
         $this->completed = (bool) $post->completed;
@@ -34,12 +32,8 @@ class Edit extends Component
 
     public function update()
     {
-        // Validate the input fields
         $this->validate();
-
-        // Find the post and update it
         $post = Posts::findOrFail($this->postId);
-
         $data = [
             'title' => $this->title,
             'content' => $this->content,
@@ -51,15 +45,9 @@ class Edit extends Component
             return Redirect::route('home');
         }
 
-        $post->update([
-            'title' => $this->title,
-            'content' => $this->content,
-            'completed' => $this->completed
-        ]);
-
+        $post->update($data);
         session()->flash('message', 'Note updated successfully');
         // Flash message and redirect
-
         return Redirect::route('home'); // Adjust the redirect route if necessary
     }
 

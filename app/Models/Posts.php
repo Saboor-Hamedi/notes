@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Posts extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'content', 'completed'];
+    protected $fillable = ['title', 'content', 'completed', 'user_id'];
 
     // public function isModified($title, $content, $completed)
     // {
@@ -27,5 +27,9 @@ class Posts extends Model
             }
         }
         return false;
+    }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

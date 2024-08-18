@@ -1,14 +1,14 @@
 <div class="collapse navbar-collapse">
     <ul class="mr-auto navbar-nav">
+        @auth
         <li class="nav-item">
             <x-nav-link :active="request()->routeIs('posts.create')" wire:navigate href="{{ route('posts.create') }}" class="nav-link">
                 {{ __('Create') }}
             </x-nav-link>
         </li>
-        @auth
             <li class="nav-item">
             <x-nav-link :active="request()->routeIs('dashboard')" wire:navigate href="{{ route('dashboard') }}" class="nav-link">
-                {{ __('Profile') }}
+                {{Auth::user()->name ?? ''}}
             </x-nav-link>
         </li>
         @endauth
