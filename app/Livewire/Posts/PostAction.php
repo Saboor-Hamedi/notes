@@ -12,7 +12,6 @@ class PostAction extends Component
     public $post;
     public function mount($postId)
     {
-        // $this->postId = $postId;
         $this->post = Posts::findOrFail($postId);
     }
 

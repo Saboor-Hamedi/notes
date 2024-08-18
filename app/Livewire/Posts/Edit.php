@@ -25,6 +25,7 @@ class Edit extends Component
     {
         $this->postId = $id;
         $post = Posts::findOrFail($id);
+        $this->authorize('update', $post);
         $this->title = $post->title;
         $this->content = $post->content;
         $this->completed = (bool) $post->completed;
@@ -34,6 +35,7 @@ class Edit extends Component
     {
         $this->validate();
         $post = Posts::findOrFail($this->postId);
+        $this->authorize('update', $post);
         $data = [
             'title' => $this->title,
             'content' => $this->content,
