@@ -9,12 +9,11 @@ use Livewire\Component;
 class PostAction extends Component
 {
     public $postId;
-    public $isOwner = false;
+    public $post;
     public function mount($postId)
     {
-        $this->postId = $postId;
-        $post = Posts::findOrFail($postId);
-        $this->isOwner = Auth::check() && Auth::id() === $post->user_id;
+        // $this->postId = $postId;
+        $this->post = Posts::findOrFail($postId);
     }
 
     public function modify()

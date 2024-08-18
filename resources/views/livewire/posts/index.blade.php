@@ -25,9 +25,11 @@
                             <p class="card-text">{!! Str::limit($post->content, 40, '...') !!}.</p>
                             <p class="mt-auto text-muted">{{ $post->created_at->diffForHumans() }}</p>
                         </div>
+                        
                         <div class="card-footer d-flex justify-content-between">
                             @livewire('posts.post-action',['postId' => $post->id])
                         </div>
+                           
                     </div>
                 </div>
             @endforeach

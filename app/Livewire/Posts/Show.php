@@ -8,16 +8,11 @@ use Livewire\Component;
 
 class Show extends Component
 {
+    public $id;
     public $post;
-    public $isOwner;
-
     public function mount($id)
     {
         $this->post = Posts::findOrFail($id);
-        $this->isOwner = Auth::check() && Auth::id() === $this->post->user_id;
-        if (!$this->isOwner && !Auth::check()) {
-            abort(403, 'Unauthorized action.');
-        }
     }
 
     public function render()

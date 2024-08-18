@@ -14,13 +14,12 @@
                         <a href="{{ route('home') }}" class="btn btn-primary btn-sm" wire:navigate>
                             <i class="bi bi-house"></i> Back
                         </a>
-                        @auth
-                            @if ($isOwner)
-                                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm" wire:navigate>
-                                    <i class="bi bi-pencil-square"></i> Edit
-                                </a>
-                            @endif
-                        @endauth
+                        @if ($post->guest())
+                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm" wire:navigate>
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                        @endif
+
                     </div>
                 </div>
             </div>
