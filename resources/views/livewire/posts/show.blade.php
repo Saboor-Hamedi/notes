@@ -5,18 +5,20 @@
                 <div class="card">
                     <img src="https://via.placeholder.com/100x20" class="card-img-top img-fluid" alt="Image not found ">
                     <div class="card-body">
+                        <p class="text-muted">{{ Str::ucfirst($post->user->name) }}</p>
                         <h1 class="card-title">{!! Str::ucfirst($post->title) !!}</h1>
                         <p class="card-text">{{ $post->content }}</p>
                         <p class="text-muted"> {{ $post->created_at->diffForHumans() }}</p>
                     </div>
                     <div class="card-footer d-flex justify-content-between">
                         <a href="{{ route('home') }}" class="btn btn-primary btn-sm" wire:navigate>
-                            <i class="bi bi-house"></i> Back
+                        <i class="bi bi-house"></i> Back
                         </a>
-                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm" wire:navigate>
-                            <i class="bi bi-pencil-square"></i> Edit
-                        </a>
-                       
+                        @if (auth()->check() && auth()->user()->id === $post->id)
+                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm" wire:navigate>
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

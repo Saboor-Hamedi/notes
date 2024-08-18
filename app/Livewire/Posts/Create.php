@@ -4,7 +4,7 @@ namespace App\Livewire\Posts;
 
 use App\Models\Posts;
 use Illuminate\Support\Facades\Redirect;
-use Livewire\Attributes\Rule;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Create extends Component
@@ -24,8 +24,12 @@ class Create extends Component
     {
         // Validate the input fields
         $this->validate();
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
         // Proceed with other logic, like saving to the database
         $post = Posts::create([
+
             'title' => $this->title,
             'content' => $this->content,
             'completed' => $this->completed

@@ -3,20 +3,21 @@
 namespace App\Livewire\Posts;
 
 use App\Models\Posts;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 
 class Edit extends Component
 {
 
+    use AuthorizesRequests;
     public $title;
     public $content;
     public $completed = false;
     public $postId;
-
     // Define validation rules
     protected $rules = [
-        'title' => 'required|min:3|max:50',
+        'title' => 'required|min:3|max:100',
         'content' => 'required|min:3|max:250',
     ];
 
@@ -24,9 +25,8 @@ class Edit extends Component
     {
         $this->postId = $id;
         $post = Posts::findOrFail($id);
-
-
-        // Initialize properties with post data
+        // authorized 
+        $this->authorize('update', $post);
         $this->title = $post->title;
         $this->content = $post->content;
         $this->completed = (bool) $post->completed;
@@ -34,12 +34,9 @@ class Edit extends Component
 
     public function update()
     {
-        // Validate the input fields
         $this->validate();
-
-        // Find the post and update it
         $post = Posts::findOrFail($this->postId);
-
+        $this->authorize('update', $post);
         $data = [
             'title' => $this->title,
             'content' => $this->content,
@@ -51,11 +48,7 @@ class Edit extends Component
             return Redirect::route('home');
         }
 
-        $post->update([
-            'title' => $this->title,
-            'content' => $this->content,
-            'completed' => $this->completed
-        ]);
+        $post->update($data);
 
         session()->flash('message', 'Note updated successfully');
         // Flash message and redirect

@@ -25,6 +25,6 @@
                 <input type="checkbox" id="completed" wire:model="completed"> Check as Completed
             </label>
         </div>
-        <button type="submit" class="btn btn-primary">Update note</button>
+        <button type="submit" class="btn btn-primary">Create note</button>
     </div>
 </form>

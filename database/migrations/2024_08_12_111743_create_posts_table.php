@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('content');
             $table->boolean('completed')->default(false);
-            $table->integer('likes')->default(false);
+            $table->integer('likes')->default(0);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

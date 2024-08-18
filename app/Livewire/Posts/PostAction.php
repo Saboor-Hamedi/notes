@@ -2,11 +2,16 @@
 
 namespace App\Livewire\Posts;
 
+use App\Models\Posts;
 use Livewire\Component;
 
 class PostAction extends Component
 {
     public $postId;
+    public function mount($postId)
+    {
+        $this->postId = $postId;
+    }
     public function modify()
     {
         // Redirect immediately
