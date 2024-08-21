@@ -60,8 +60,8 @@ new #[Layout('layouts.guest')] class extends Component {
             </a>
         @endif
 
-        <x-primary-button class="btn btn-primary ms-3">
-            {{ __('Log in') }}
+        <x-primary-button class="btn btn-primary btn-sm">
+            <i class="bi bi-unlock"></i> {{ __('Log in') }}
         </x-primary-button>
     </div>
 </form>

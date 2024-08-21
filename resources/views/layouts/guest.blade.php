@@ -1,4 +1,3 @@
-{{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 <x-app-layout>
     <nav class="navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="{{ route('home') }}" wire:navigate>Notes</a>

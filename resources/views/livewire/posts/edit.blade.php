@@ -11,7 +11,7 @@
             @enderror
         </small>
     </div>
-    <div class="mb-3 form-floating">
+    <div class="form-floating">
         <textarea wire:model.live='content' id="content" name="content"
             class="form-control @error('content') is-invalid @enderror" placeholder="Leave a comment here"></textarea>
         <small>
@@ -20,11 +20,11 @@
             @enderror
         </small>
     </div>
-    <div class="form-group">
-        <label for="completed">
-            <input type="checkbox" id="completed" wire:model.live="completed"> Check as Completed
-        </label>
-    </div>
-    <button type="submit" class="btn btn-info">Update note</button>
+      <div class="mb-1 form-group">
+            <label for="completed">
+                <input type="checkbox" id="completed" wire:model="completed"> Check as Completed
+            </label>
+        </div>
+    <button type="submit" class="btn btn-info"><i class="bi bi-pencil-square"></i></button>
    </div>
 </form>
